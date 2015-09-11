@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'bst'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    compile("org.springframework.boot:spring-boot-starter-data-jpa") {
+        //exclude module:"org.hibernate:hibernate-entitymanager"
+    }
+
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("mysql:mysql-connector-java")
+
+    //for development, dynamically loading the classes
+    compile('org.springframework:springloaded:1.2.0.RELEASE')
+
+    //jersey libs
+    compile("org.glassfish.jersey.containers:jersey-container-servlet:2.15")
+    compile("org.glassfish.jersey.core:jersey-server:2.15")
+    compile("org.glassfish.jersey.core:jersey-common:2.15")
+    compile("org.glassfish.jersey.media:jersey-media-json-jackson:2.15")
+    compile("org.glassfish.jersey.ext:jersey-spring3:2.15")
+
+    compile("com.google.guava:guava:18.0")
+
+    compile("javax.servlet:javax.servlet-api:3.1.0")
+    compile("javax.ws.rs:javax.ws.rs-api:2.0.1")
+    testCompile("junit:junit")
+    testCompile 'org.testng:testng:6.8.1'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
