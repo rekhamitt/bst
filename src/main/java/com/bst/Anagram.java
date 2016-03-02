@@ -1,4 +1,4 @@
-package com.integnology.configurator.util;
+package com.bst;
 
 import com.google.common.collect.ArrayListMultimap;
 import java.util.Arrays;
