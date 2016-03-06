@@ -55,11 +55,6 @@ public class QuickSort {
         System.out.println("Sorted array " + Arrays.asList(result).toString());
     }
 }
-package com.integnology.configurator.util;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by rekhamittal on 3/1/16.
